@@ -6,9 +6,10 @@ function Support() {
   const history = useHistory();
   const dispatch = useDispatch();
   const support = useSelector(store => store.supportReducer);
-  const [newSupport, setNewSupport] = useState(0);
+  const [newSupport, setNewSupport] = useState("");
 
-  function handleNext() {
+  function handleSubmit(event) {
+    event.preventDefault();
     dispatch({type: 'ADD_SUPPORT', payload: newSupport});
     history.push('/comments');
   }
@@ -20,9 +21,12 @@ function Support() {
     <>
       <h2>How well are you being supported?</h2>
       <div>
+        <form onSubmit={handleSubmit}>
+
         <label htmlFor="supported">Supported?</label>
-        <input type="number" name="supported" onChange={(event) => setNewSupport(event.target.value)} value={newSupport} required/>
-        <button onClick={handleNext}>Next</button>
+        <input type="number" name="supported" min="1" placeholder="1-10" onChange={(event) => setNewSupport(event.target.value)} value={newSupport} required/>
+        <button type="submit">Next</button>
+        </form>
       </div>
     </>
   )

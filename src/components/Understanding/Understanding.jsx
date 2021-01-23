@@ -7,10 +7,11 @@ function Understanding() {
   const dispatch = useDispatch();
   const history = useHistory();
   // const understand = useSelector(store => store.understandingReducer);
-  const [newUnderstanding, setNewUnderstanding] = useState(0);
+  const [newUnderstanding, setNewUnderstanding] = useState("");
 
 
-  function handleNext() {
+  function handleSubmit(event) {
+    event.preventDefault();
     dispatch({type: 'ADD_UNDERSTANDING', payload: newUnderstanding})
     history.push('/support');
     // clear inputs? UseEffect to clear on component reload?
@@ -23,9 +24,12 @@ function Understanding() {
     <>
       <h2>How well are you understanding the content?</h2>
       <div>
+        <form onSubmit={handleSubmit}>
+
         <label htmlFor="understanding">Understanding?</label>
-        <input type="number" name="understanding" onChange={(event) => setNewUnderstanding(event.target.value)} value ={newUnderstanding} required/>
-        <button onClick={handleNext}>Next</button>
+        <input type="number" name="understanding" min="1" placeholder="1-10" onChange={(event) => setNewUnderstanding(event.target.value)} value ={newUnderstanding} required/>
+        <button type="submit">Next</button>
+        </form>
       </div>
     </>
   )
