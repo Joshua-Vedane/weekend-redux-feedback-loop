@@ -13,7 +13,7 @@ function Understanding() {
   function handleNext() {
     dispatch({type: 'ADD_UNDERSTANDING', payload: newUnderstanding})
     history.push('/support');
-    // clear inputs
+    // clear inputs? UseEffect to clear on component reload?
   }
 
 
