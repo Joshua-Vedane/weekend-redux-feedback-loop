@@ -38,4 +38,15 @@ if (process.env.DATABASE_URL) {
     };
 }
 
-module.exports = new pg.Pool(config);
+//breadcrumbs for pool connect
+const pool = new pg.Pool(config);
+
+pool.on('connect', () => {
+  console.log('Postgresql connected');
+});
+pool.on('error', (error) => {
+  console.log('error in connecting to pool', error);
+});
+
+// module.exports = new pg.Pool(config);
+module.exports = pool;

@@ -10,11 +10,11 @@ function Support() {
 
   function handleNext() {
     dispatch({type: 'ADD_SUPPORT', payload: newSupport});
-    // history.push('/comments');
+    history.push('/comments');
   }
 
-  console.log('newSupport is now: ', {newSupport});
-  console.log('supportReducer is now: ', {support});
+  // console.log('newSupport is now: ', {newSupport});
+  // console.log('supportReducer is now: ', {support});
 
   return (
     <>
