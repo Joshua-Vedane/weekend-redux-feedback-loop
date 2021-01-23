@@ -21,3 +21,39 @@
 h4 {
   font-style: italic;
 }
+
+/* Header styling for every input component */
+#root .form-heading {
+  display: flex;
+  justify-content: center;
+}
+
+/* form container stylings */
+#root .form-feedback {
+  display: flex; 
+  justify-content: center;
+}
+
+#root .form-feedback button {
+  padding: 0.25rem 1rem;
+  margin-left: 0.5rem;
+}
+
+#root .form-feedback input {
+  margin-left: 0.5rem;
+}
+
+/* Review container styling */
+#root .review-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+/* submittal success styling */
+#root .submittal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

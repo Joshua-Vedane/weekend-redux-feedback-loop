@@ -7,9 +7,9 @@ function Header() {
       <h1 className='App-title'>Feedback!</h1>
       <h4>Don't forget it!</h4>
     </header>
-    <ul>
+    {/* <ul>
       <li>
-        <Link to='/feeling'>Feeling</Link>
+        <Link to='/'>Feeling</Link>
       </li>
       <li>
         <Link to='/understanding'>understanding</Link>
@@ -23,7 +23,7 @@ function Header() {
       <li>
         <Link to='/review'>review</Link>
       </li>
-    </ul>
+    </ul> */}
   </div>
   
   )

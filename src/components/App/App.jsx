@@ -19,7 +19,7 @@ function App() {
         <Header/>
       </Route>
       <main>
-        <Route path="/feeling">
+        <Route exact path="/">
           <Feeling/>
         </Route>
         <Route path="/understanding">

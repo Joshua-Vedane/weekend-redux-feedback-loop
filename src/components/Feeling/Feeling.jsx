@@ -4,8 +4,8 @@ import { useHistory } from 'react-router-dom';
 import {useState} from 'react';
 function Feeling() {
   const history = useHistory();
-  // const feeling = useSelector(store => store.feelingReducer);
-  const [newFeeling, setNewFeeling] = useState(0);
+  const feeling = useSelector(store => store.feelingReducer);
+  const [newFeeling, setNewFeeling] = useState("");
   const dispatch = useDispatch();
 
   // function handleChange(event){
@@ -14,22 +14,29 @@ function Feeling() {
   //   console.log(newFeeling);
   // }
 
-  function handleNext() {
+  function handleSubmit(event) {
+    event.preventDefault();
     //dispatch
     dispatch({type: 'ADD_FEELING', payload: newFeeling})
     history.push('/understanding');
     //clear inputs
   }
 
-  // console.log('newFeeling is now:' , {newFeeling});
-  // console.log('feelingReducer is now:', {feeling});
+  console.log('newFeeling is now:' , {newFeeling});
+  console.log('feelingReducer is now:', {feeling});
   return (
     <>
-      <h2>How are you feeling today?</h2>
-      <div>
+      <div className='form-heading'>
+        <h2 >How are you feeling today?</h2>
+
+      </div>
+      <div className="form-feedback">
+        <form onSubmit={handleSubmit}>
+
         <label htmlFor="feeling">Feeling?</label>
-        <input type="number" name="feeling" onChange={(event) => setNewFeeling(event.target.value)} value={newFeeling} required />
-        <button onClick={handleNext}>Next</button>
+        <input type="number" name="feeling" min="1" placeholder='1-10' onChange={(event) => setNewFeeling(event.target.value)} value={newFeeling} required />
+        <button type="submit">Next</button>
+        </form>
       </div>
     </>
   )

@@ -38,13 +38,13 @@ function Review(){
   }
 
   const handleNewFeedback = () => {
-    history.push('/feeling');
+    history.push('/');
   }
 
   return(
     <>
      {!isSubmitted ? (
-       <>
+       <div className='review-container'>
         <h1>Review Your Feedback</h1>
         <h4>Feelings: {feeling}</h4>
         <h4>Understanding: {understand}</h4>
@@ -53,12 +53,12 @@ function Review(){
         <form onSubmit={handleSubmit}>
           <button type="submit">SUBMIT</button>
         </form>
-       </>
+       </div>
      ):(
-       <>
+       <div className='submittal-container'>
         <h1>THANK YOU!!</h1>
         <button onClick={handleNewFeedback}>Leave New Feedback</button>
-       </>
+       </div>
      )}
     </>
     
