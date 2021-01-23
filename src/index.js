@@ -8,6 +8,23 @@ import {Provider} from 'react-redux';
 import registerServiceWorker from './registerServiceWorker';
 
 
+const feelingReducer = (state = [], action) => {
+
+};
+const understandingReducer = (state = [], action) => {
+
+};
+const supportReducer = (state = [], action) => {
+
+};
+const commentReducer = (state = [], action) => {
+
+};
+const feedbackReducer = (state = [], action) => {
+
+};
+
+
 
 const reduxStore = createStore(
   combineReducers({
