@@ -8,33 +8,48 @@ import {Provider} from 'react-redux';
 import registerServiceWorker from './registerServiceWorker';
 
 
-const feelingReducer = (state = [], action) => {
-
+const feelingReducer = (state = 0, action) => {
+  switch(action.type){
+    case 'ADD_FEELING': 
+      return action.payload;
+    default:
+      return state;
+  }
 };
-const understandingReducer = (state = [], action) => {
-
+const understandingReducer = (state = 0, action) => {
+  switch(action.type){
+    case 'ADD_UNDERSTANDING':
+      return action.payload;
+    default: 
+      return state;
+  }
 };
-const supportReducer = (state = [], action) => {
-
+const supportReducer = (state = 0, action) => {
+  return state;
 };
-const commentReducer = (state = [], action) => {
-
+const commentReducer = (state = "", action) => {
+  return state;
 };
 const feedbackReducer = (state = [], action) => {
-
+  return state;
 };
 
 
 
-const reduxStore = createStore(
+const storeInstance = createStore(
   combineReducers({
+    feelingReducer,
+    understandingReducer,
+    supportReducer,
+    commentReducer,
+    feedbackReducer
 
   }),
   applyMiddleware(logger)
 );
 
 ReactDOM.render(
-  <Provider store={reduxStore}>
+  <Provider store={storeInstance}>
     <App />
   </Provider>,
   document.getElementById("root")
