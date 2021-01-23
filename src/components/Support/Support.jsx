@@ -19,9 +19,9 @@ function Support() {
 
   return (
     <>
-      <h2>How well are you being supported?</h2>
+      <h2 className='form-heading'>How well are you being supported?</h2>
       <div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='form-feedback'>
 
         <label htmlFor="supported">Supported?</label>
         <input type="number" name="supported" min="1" placeholder="1-10" onChange={(event) => setNewSupport(event.target.value)} value={newSupport} required/>

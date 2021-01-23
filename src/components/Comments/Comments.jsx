@@ -18,8 +18,8 @@ function Feeling() {
   
   return (
     <>
-      <h2>Any comments you want to leave?</h2>
-      <div>
+      <h2 className='form-heading'>Any comments you want to leave?</h2>
+      <div className='form-feedback'>
         <label htmlFor="comment">Comments</label>
         <input type="text" name="comment" onChange={(event) => setNewComment(event.target.value)} value={newComment}/>
         <button onClick={handleNext}>Next</button>

@@ -26,8 +26,11 @@ function Feeling() {
   console.log('feelingReducer is now:', {feeling});
   return (
     <>
-      <h2>How are you feeling today?</h2>
-      <div>
+      <div className='form-heading'>
+        <h2 >How are you feeling today?</h2>
+
+      </div>
+      <div className="form-feedback">
         <form onSubmit={handleSubmit}>
 
         <label htmlFor="feeling">Feeling?</label>

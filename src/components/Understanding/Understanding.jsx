@@ -22,8 +22,8 @@ function Understanding() {
   // console.log('understandReducer is: ', {understand});
   return (
     <>
-      <h2>How well are you understanding the content?</h2>
-      <div>
+      <h2 className='form-heading'>How well are you understanding the content?</h2>
+      <div className='form-feedback'>
         <form onSubmit={handleSubmit}>
 
         <label htmlFor="understanding">Understanding?</label>
