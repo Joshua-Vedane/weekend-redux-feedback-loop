@@ -43,20 +43,33 @@ const commentReducer = (state = "", action) => {
     case 'ADD_COMMENT':
       return action.payload;
     case 'CLEAR_DATA':
-      return state = 0;
+      return state = "";
     default:
       return state;
   }
 };
 
+const appReducer = combineReducers({
+  feelingReducer, 
+  understandingReducer, 
+  supportReducer, 
+  commentReducer
+});
+
+const rootReducer = (state, action) => {
+
+  switch(action.type === 'CLEAR_DATA'){
+    case 'CLEAR_DATA':
+      return undefined;
+    default :
+      return appReducer(state, action)
+  }
+}
+
 const storeInstance = createStore(
-  combineReducers({
-    feelingReducer,
-    understandingReducer,
-    supportReducer,
-    commentReducer,
-  }),
+  rootReducer,
   applyMiddleware(logger)
+  
 );
 
 ReactDOM.render(
