@@ -9,15 +9,12 @@ function Review(){
   const understand = useSelector(store => store.understandingReducer);
   const support = useSelector(store => store.supportReducer);
   const comments = useSelector(store => store.commentReducer);
-  const feedback = useSelector(store => store.feedbackReducer);
+  
 
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const dispatch = useDispatch();
-  //ON SUBMIT TRIGGERS POST ROUTE. 
-  // condo rendering to show completed? or separate comp to route to?
-
-  //NEED TO CLEAR REDUCERS HERE SOMEWHERE
+  
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -38,9 +35,12 @@ function Review(){
   }
 
   const handleNewFeedback = () => {
+    // clear reducer data 
+    dispatch({type: 'CLEAR_DATA'})
     history.push('/');
   }
-
+  
+  // console.log(`feeling: ${feeling}, understanding: ${understand}, support: ${support}, comments: ${comments}`);
   return(
     <>
      {!isSubmitted ? (

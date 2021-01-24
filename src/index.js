@@ -12,6 +12,8 @@ const feelingReducer = (state = 0, action) => {
   switch(action.type){
     case 'ADD_FEELING': 
       return action.payload;
+    case 'CLEAR_DATA':
+      return state = 0;
     default:
       return state;
   }
@@ -20,6 +22,8 @@ const understandingReducer = (state = 0, action) => {
   switch(action.type){
     case 'ADD_UNDERSTANDING':
       return action.payload;
+    case 'CLEAR_DATA':
+      return state = 0;
     default: 
       return state;
   }
@@ -28,7 +32,9 @@ const supportReducer = (state = 0, action) => {
   switch(action.type){
     case 'ADD_SUPPORT':
       return action.payload;
-    default: 
+    case 'CLEAR_DATA':
+      return state = 0;
+      default: 
       return state;
   }
 };
@@ -36,23 +42,32 @@ const commentReducer = (state = "", action) => {
   switch(action.type){
     case 'ADD_COMMENT':
       return action.payload;
+    case 'CLEAR_DATA':
+      return state = 0;
     default:
       return state;
   }
 };
-const feedbackReducer = (state = [], action) => {
-  return state;
-};
+// const feedbackReducer = (state = [], action) => {
+//   return state;
+// };
 
+// got a feeling this will break. trying to reset all in one
+// const rootReducer = (state, action) => {
+//   if(action.type === 'CLEAR_DATA'){
+//     state = undefined;
+//   }
+//   return storeInstance(state, action);
+// }
 
-
+//storeInstance is like appReducer?
 const storeInstance = createStore(
   combineReducers({
     feelingReducer,
     understandingReducer,
     supportReducer,
     commentReducer,
-    feedbackReducer
+    // feedbackReducer
 
   }),
   applyMiddleware(logger)
