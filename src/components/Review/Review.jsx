@@ -37,10 +37,10 @@ function Review() {
   const handleNewFeedback = () => {
     // clear reducer data 
     dispatch({ type: 'CLEAR_DATA' })
-    history.push('/');
+    // history.push('/');
   }
 
-  // console.log(`feeling: ${feeling}, understanding: ${understand}, support: ${support}, comments: ${comments}`);
+  console.log(`feeling: ${feeling}, understanding: ${understand}, support: ${support}, comments: ${comments}`);
   return (
     <>
       {/* condo rendering on submit button click */}
