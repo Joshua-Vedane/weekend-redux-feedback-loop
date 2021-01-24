@@ -12,8 +12,6 @@ const feelingReducer = (state = 0, action) => {
   switch (action.type) {
     case 'ADD_FEELING':
       return action.payload;
-    // case 'CLEAR_DATA':
-    //   return state = 0;
     default:
       return state;
   }
@@ -22,8 +20,6 @@ const understandingReducer = (state = 0, action) => {
   switch (action.type) {
     case 'ADD_UNDERSTANDING':
       return action.payload;
-    // case 'CLEAR_DATA':
-    //   return state = 0;
     default:
       return state;
   }
@@ -32,8 +28,6 @@ const supportReducer = (state = 0, action) => {
   switch (action.type) {
     case 'ADD_SUPPORT':
       return action.payload;
-    // case 'CLEAR_DATA':
-    //   return state = 0;
     default:
       return state;
   }
@@ -42,12 +36,14 @@ const commentReducer = (state = "", action) => {
   switch (action.type) {
     case 'ADD_COMMENT':
       return action.payload;
-    // case 'CLEAR_DATA':
-    //   return state = "";
     default:
       return state;
   }
 };
+
+// I wanted a way to reset Reducers without repeating it for each reducer. Found information on this from:
+//  https://medium.com/@asher.cassetto.cohen/resetting-redux-state-with-a-root-reducer-bonus-how-to-reset-state-selectively-e2a008d0de61
+// Also got help from pod classmates Michael Dunn and Collin Radichel 
 
 const appReducer = combineReducers({
   feelingReducer, 
@@ -61,13 +57,6 @@ const rootReducer = (state, action) => {
     state = undefined;
   }
   return appReducer(state, action);
-
-  // switch(action.type === 'CLEAR_DATA'){
-  //   case 'CLEAR_DATA':
-  //     return state = undefined;
-  //   default :
-  //     return appReducer(state, action)
-  // }
 }
 
 const storeInstance = createStore(
