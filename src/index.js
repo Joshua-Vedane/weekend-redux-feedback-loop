@@ -12,8 +12,8 @@ const feelingReducer = (state = 0, action) => {
   switch (action.type) {
     case 'ADD_FEELING':
       return action.payload;
-    case 'CLEAR_DATA':
-      return state = 0;
+    // case 'CLEAR_DATA':
+    //   return state = 0;
     default:
       return state;
   }
@@ -22,8 +22,8 @@ const understandingReducer = (state = 0, action) => {
   switch (action.type) {
     case 'ADD_UNDERSTANDING':
       return action.payload;
-    case 'CLEAR_DATA':
-      return state = 0;
+    // case 'CLEAR_DATA':
+    //   return state = 0;
     default:
       return state;
   }
@@ -32,8 +32,8 @@ const supportReducer = (state = 0, action) => {
   switch (action.type) {
     case 'ADD_SUPPORT':
       return action.payload;
-    case 'CLEAR_DATA':
-      return state = 0;
+    // case 'CLEAR_DATA':
+    //   return state = 0;
     default:
       return state;
   }
@@ -42,21 +42,38 @@ const commentReducer = (state = "", action) => {
   switch (action.type) {
     case 'ADD_COMMENT':
       return action.payload;
-    case 'CLEAR_DATA':
-      return state = 0;
+    // case 'CLEAR_DATA':
+    //   return state = "";
     default:
       return state;
   }
 };
 
+const appReducer = combineReducers({
+  feelingReducer, 
+  understandingReducer, 
+  supportReducer, 
+  commentReducer
+});
+
+const rootReducer = (state, action) => {
+  if (action.type === 'CLEAR_DATA') {
+    state = undefined;
+  }
+  return appReducer(state, action);
+
+  // switch(action.type === 'CLEAR_DATA'){
+  //   case 'CLEAR_DATA':
+  //     return state = undefined;
+  //   default :
+  //     return appReducer(state, action)
+  // }
+}
+
 const storeInstance = createStore(
-  combineReducers({
-    feelingReducer,
-    understandingReducer,
-    supportReducer,
-    commentReducer,
-  }),
+  rootReducer,
   applyMiddleware(logger)
+  
 );
 
 ReactDOM.render(
