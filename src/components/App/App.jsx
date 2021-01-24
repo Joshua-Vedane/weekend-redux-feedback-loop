@@ -1,7 +1,5 @@
 import React from 'react';
-import axios from 'axios';
 import { HashRouter as Router, Link, Route } from 'react-router-dom';
-import {useEffect} from 'react';
 import Header from '../Header/Header';
 import Feeling from '../Feeling/Feeling';
 import Understanding from '../Understanding/Understanding';
@@ -16,26 +14,26 @@ function App() {
   return (
     <Router>
       <Route>
-        <Header/>
+        <Header />
       </Route>
       <main>
         <Route exact path="/">
-          <Feeling/>
+          <Feeling />
         </Route>
         <Route path="/understanding">
-          <Understanding/>
+          <Understanding />
         </Route>
         <Route path="/support">
-          <Support/>
+          <Support />
         </Route>
         <Route path="/comments">
-          <Comments/>
+          <Comments />
         </Route>
         <Route path="/review">
-          <Review/>
+          <Review />
         </Route>
       </main>
-    
+
     </Router>
   );
 }

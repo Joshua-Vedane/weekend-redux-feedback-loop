@@ -17,13 +17,6 @@ router.post('/', (req, res) => {
       console.log('error adding new feedback', error);
       res.sendStatus(500);
     });
-
-//  .then(result => {
-//   res.sendStatus(201);
-// }).catch(error => {
-//   console.log('error adding newFeedback', error);
-//   res.sendStatus(500);
-// })
 });
 
 

@@ -1,27 +1,26 @@
-import { useSelector, useDispatch } from 'react-redux';
-import {useState} from 'react';
+import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 function Feeling() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const comments = useSelector(store => store.commentReducer);
+
   const [newComment, setNewComment] = useState("");
 
+  // update commentsReducer with newComment
+
   function handleNext() {
-    dispatch({type: 'ADD_COMMENT', payload: newComment})
+    dispatch({ type: 'ADD_COMMENT', payload: newComment })
     history.push('/review');
   }
 
-
-  // console.log('newComment is now:', {newComment});
-  // console.log('commentReducer is now:', {comments});
-  
+  //comments not wrapped in form because no validation. 
   return (
     <>
       <h2 className='form-heading'>Any comments you want to leave?</h2>
       <div className='form-feedback'>
         <label htmlFor="comment">Comments</label>
-        <input type="text" name="comment" onChange={(event) => setNewComment(event.target.value)} value={newComment}/>
+        <input type="text" name="comment" onChange={(event) => setNewComment(event.target.value)} value={newComment} />
         <button onClick={handleNext}>Next</button>
       </div>
     </>
@@ -29,14 +28,3 @@ function Feeling() {
 }
 
 export default Feeling;
-
-/*
-HTML is similar for feeling/understand/support
-h2 > with text
-label
-input:number
-button for redirect and update state
-
-
-
-*/
