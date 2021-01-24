@@ -15,6 +15,7 @@ function Feeling() {
     //clear inputs
   }
 
+  
   return (
     <>
       <div className='form-heading'>
